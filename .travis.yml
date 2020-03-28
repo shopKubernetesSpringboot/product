@@ -1,0 +1,19 @@
+language: java
+addons:
+  sonarcloud:
+    organization: "davidgfolch-github"
+    token:
+      secure: "RIdrfWJ9MRoLj1huLAbh+NwrtpxCp0T6oKSCCJ4gQ4bfZ3KZzNag2Wbzg5J5iOj8xjwXKSzrxtMXATySV5h00ToKgd1d5BcwRdjgGl4005UDi5P6RYlLVb4kzW+3oeUZdIU9NMq+z6jPFyva1MiId9WEH1oCQSER3r/XH1xRXNS/GDsGhK4+ajaEOWptUHDadEr0fab6lqYeO++ofn7Yr/f509so1xirJghl9gQ8C4xljp3MrMg7LA79G5QvPGKk3M05X+nX8bmxmvFVabQ4pUKyiAH3i2E1A1QbvzernAKMTWmkhTtKUh2JTgRiGuVRq6IiZPN7BmVH7u7VCVn6dLpRouGZ4c6nTixhMSORU9uVZoCQPYc5rMIberfRIOg07PLV2y6QRWdyoJaiuRs3tXmrMiZzannrvXkMgoQR/V6e7q3Af4znC0ustgGsof+14DSOATR2myB9vIYqKB1EReK+bvDDiqSiV4tCHG7pOIf8cKrsl160PqW+0sqzxmOigwvyhE6/+/xEsKkcm9VJls3eLnAMzJRb1E4ZXlFYI8r90BM2S2mlaq5PG62d5/zTpr2nDlSOlDNNz+qONU2X87YDkeGqlFuN4Ia9XMuz67dxw9TVytS+V17/+iD16Gxs5bTa3UXbe8ouiGdp8nECO3Loagh3SzbyrD3T8YMDK+4="
+
+before_install:
+  - chmod +x gradlew
+
+script:
+  - ./gradlew clean build jacocoTestReport sonarqube
+#  - sonar-scanner
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+    - '$HOME/.gradle'
+    - '.gradle'
