@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "e3575ffb-4691-4c91-81cc-4b7cd6d33aff",
+		"name": "shopProduct",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "productCreateAll",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/product/createAll",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"createAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productFindLike",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/product/find/sp",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"find",
+						"sp"
+					]
+				},
+				"description": "Find like by title"
+			},
+			"response": []
+		},
+		{
+			"name": "productList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/product/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"list"
+					]
+				},
+				"description": "Find like by title"
+			},
+			"response": []
+		}
+	]
+}
