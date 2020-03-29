@@ -14,10 +14,6 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 public class ProductRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> createAll(ProductHandler handler) {
-        return route(PUT("/product/createAll"), handler::create);
-    }
-    @Bean
     public RouterFunction<ServerResponse> find(ProductHandler handler) {
         return route(GET("/product/find/{name}"), handler::find);
     }

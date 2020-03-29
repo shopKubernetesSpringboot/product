@@ -3,14 +3,17 @@ package com.dgf.shopproduct.repo;
 
 import com.dgf.shopproduct.Constants;
 import com.dgf.shopproduct.model.Product;
+import com.dgf.shopproduct.service.ProductService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.context.annotation.Import;
 import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest  //embedded mongo tests can't be unit tests
+@DataMongoTest
+@Import(ProductService.class)
 public class ProductRepoTest {
 
     @Autowired

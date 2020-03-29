@@ -18,12 +18,6 @@ public class ProductHandler {
 
     private final ProductService service;
 
-    public Mono<ServerResponse> create(ServerRequest request) {
-        return service.create(PRODUCTS.get()).collectList().flatMap(resp->
-            ok().contentType(APPLICATION_JSON).body(fromValue(resp))
-        );
-    }
-
     public Mono<ServerResponse> find(ServerRequest request) {
         return service.findByNameIgnoreCaseContaining(request.pathVariable("name")).collectList().flatMap(resp->
             ok().contentType(APPLICATION_JSON).body(fromValue(resp))
