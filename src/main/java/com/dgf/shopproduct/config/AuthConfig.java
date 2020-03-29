@@ -1,4 +1,4 @@
-package com.dgf.shopProduct.config;
+package com.dgf.shopproduct.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

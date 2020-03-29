@@ -1,4 +1,4 @@
-package com.dgf.shopProduct.util;
+package com.dgf.shopproduct.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

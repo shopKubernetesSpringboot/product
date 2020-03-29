@@ -1,4 +1,4 @@
-package com.dgf.shopProduct.model;
+package com.dgf.shopproduct.model;
 
 import java.util.Optional;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
-package com.dgf.shopProduct;
+package com.dgf.shopproduct;
 
-import com.dgf.shopProduct.service.ProductService;
+import com.dgf.shopproduct.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRep
 public class App implements ApplicationContextAware {
 
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        SpringApplication.run(App.class);
     }
 
     @Override

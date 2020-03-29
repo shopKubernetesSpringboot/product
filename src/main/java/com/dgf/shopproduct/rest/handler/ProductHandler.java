@@ -1,22 +1,24 @@
-package com.dgf.shopProduct.rest.handler;
+package com.dgf.shopproduct.rest.handler;
 
-import static com.dgf.shopProduct.Constants.PRODUCTS;
-import static org.springframework.http.MediaType.APPLICATION_JSON;
-import static org.springframework.web.reactive.function.BodyInserters.fromValue;
-import static org.springframework.web.reactive.function.server.ServerResponse.ok;
-
-import com.dgf.shopProduct.service.ProductService;
+import com.dgf.shopproduct.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
-@Component
+import static com.dgf.shopproduct.Constants.PRODUCTS;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.web.reactive.function.BodyInserters.fromValue;
+import static org.springframework.web.reactive.function.server.ServerResponse.ok;
+
+@RestController
+@RequiredArgsConstructor
 public class ProductHandler {
 
-    @Autowired
-    private ProductService service;
+    private final ProductService service;
 
     public Mono<ServerResponse> create(ServerRequest request) {
         return service.create(PRODUCTS.get()).collectList().flatMap(resp->

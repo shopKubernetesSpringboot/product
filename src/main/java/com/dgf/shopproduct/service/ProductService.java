@@ -1,16 +1,16 @@
-package com.dgf.shopProduct.service;
+package com.dgf.shopproduct.service;
 
-import com.dgf.shopProduct.Constants;
-import com.dgf.shopProduct.model.Product;
-import com.dgf.shopProduct.repo.ProductRepo;
-import java.util.List;
-import java.util.Optional;
-import javax.validation.constraints.NotNull;
+import com.dgf.shopproduct.Constants;
+import com.dgf.shopproduct.model.Product;
+import com.dgf.shopproduct.repo.ProductRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
-import reactor.util.Logger;
+
+import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -19,9 +19,9 @@ public class ProductService {
     @Autowired
     private ProductRepo repo;
 
-    public Flux<Product> findByNameIgnoreCaseContaining(String title) {
-        log.info("finding titles like: {}", title);
-        return repo.findByNameIgnoreCaseContaining(title);
+    public Flux<Product> findByNameIgnoreCaseContaining(String name) {
+        log.info("finding names like: {}", name);
+        return repo.findByNameIgnoreCaseContaining(name);
     }
 
     public Flux<Product> create(List<Product> items) {
@@ -54,6 +54,5 @@ public class ProductService {
     public void initData() {
         log.info("Creating products");
         repo.saveAll(Constants.PRODUCTS.get()).subscribe();
-//        .subscribe(product -> log.debug("Created product={}",product));
     }
 }

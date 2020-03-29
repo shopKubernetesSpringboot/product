@@ -1,6 +1,6 @@
-package com.dgf.shopProduct.repo;
+package com.dgf.shopproduct.repo;
 
-import com.dgf.shopProduct.model.Product;
+import com.dgf.shopproduct.model.Product;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Flux;
 

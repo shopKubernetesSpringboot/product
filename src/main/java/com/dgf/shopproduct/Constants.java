@@ -1,10 +1,10 @@
-package com.dgf.shopProduct;
+package com.dgf.shopproduct;
 
-import static com.dgf.shopProduct.model.ProductType.NEW;
-import static com.dgf.shopProduct.model.ProductType.OLD;
-import static com.dgf.shopProduct.model.ProductType.REGULAR;
+import static com.dgf.shopproduct.model.ProductType.NEW;
+import static com.dgf.shopproduct.model.ProductType.OLD;
+import static com.dgf.shopproduct.model.ProductType.REGULAR;
 
-import com.dgf.shopProduct.model.Product;
+import com.dgf.shopproduct.model.Product;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;

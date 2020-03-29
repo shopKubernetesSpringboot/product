@@ -1,4 +1,4 @@
-package com.dgf.shopProduct.service;
+package com.dgf.shopproduct.service;
 
 public class UserNotFoundException extends RuntimeException {
 

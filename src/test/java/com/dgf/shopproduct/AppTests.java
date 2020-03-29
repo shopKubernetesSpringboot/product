@@ -1,4 +1,4 @@
-package com.dgf.shopProduct;
+package com.dgf.shopproduct;
 
 import static junit.framework.TestCase.assertTrue;
 

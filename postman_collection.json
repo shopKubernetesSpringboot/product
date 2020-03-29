@@ -41,7 +41,7 @@
 						"sp"
 					]
 				},
-				"description": "Find like by title"
+				"description": "Find like by name"
 			},
 			"response": []
 		},
@@ -61,7 +61,7 @@
 						"list"
 					]
 				},
-				"description": "Find like by title"
+				"description": "Find like by name"
 			},
 			"response": []
 		}
