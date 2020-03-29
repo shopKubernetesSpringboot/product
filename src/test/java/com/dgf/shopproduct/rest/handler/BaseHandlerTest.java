@@ -1,6 +1,5 @@
 package com.dgf.shopproduct.rest.handler;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.http.codec.HttpMessageWriter;
@@ -20,7 +19,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 @WebFluxTest
 public abstract class BaseHandlerTest {
 
-    final ObjectMapper mapper = new ObjectMapper();
+//    final ObjectMapper mapper = new ObjectMapper();
     private final HandlerStrategies strategies = HandlerStrategies.withDefaults();
 
     ServerResponse.Context context;

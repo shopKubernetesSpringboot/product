@@ -3,7 +3,6 @@ package com.dgf.shopproduct.rest.handler;
 import com.dgf.shopproduct.Constants;
 import com.dgf.shopproduct.model.Product;
 import com.dgf.shopproduct.service.ProductService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,14 +29,25 @@ public class ProductHandlerTest extends BaseHandlerTest {
     private ProductHandler handler;
 
     private final List<Product> products = Constants.PRODUCTS.get();
-    private final String productsBody = super.mapper.writeValueAsString(products);
+//    private final String productsBody = super.mapper.writeValueAsString(products);
 
-    public ProductHandlerTest() throws JsonProcessingException {
-    }
+//    public ProductHandlerTest() throws JsonProcessingException {
+//    }
 
     @Test
     public void list() {
         MockServerWebExchange exchange = MockServerWebExchange.from(MockServerHttpRequest.get("/product/list"));
+        Mockito.when(service.findAll()).thenReturn(Flux.fromIterable(new ArrayList<>()));
+        StepVerifier.create(handler.list(getDefaultServerReq(exchange)).flatMap(response -> {
+            assertThat(response.statusCode()).isEqualTo(HttpStatus.OK);
+            return response.writeTo(exchange, context);
+        })).expectComplete().verify();
+        assertExchange(exchange,"[]");
+    }
+
+    @Test
+    public void find() {
+        MockServerWebExchange exchange = MockServerWebExchange.from(MockServerHttpRequest.get("/product/find/aa"));
         Mockito.when(service.findAll()).thenReturn(Flux.fromIterable(new ArrayList<>()));
         StepVerifier.create(handler.list(getDefaultServerReq(exchange)).flatMap(response -> {
             assertThat(response.statusCode()).isEqualTo(HttpStatus.OK);
