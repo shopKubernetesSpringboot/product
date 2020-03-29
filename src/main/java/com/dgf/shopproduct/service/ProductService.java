@@ -8,9 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -30,22 +28,22 @@ public class ProductService {
         );
     }
 
-    Flux<Product> increaseStock(List<String> items) {
-        log.info("increase stock {} ", items);
-        Flux<Product> updatedItems = repo.findAllById(items)
-            .map(Product::availabilityInc);
-        log.info("increase stock save updatedItems={} ", updatedItems);
-        return repo.saveAll(updatedItems);
-    }
+//    Flux<Product> increaseStock(List<String> items) {
+//        log.info("increase stock {} ", items);
+//        Flux<Product> updatedItems = repo.findAllById(items)
+//            .map(Product::availabilityInc);
+//        log.info("increase stock save updatedItems={} ", updatedItems);
+//        return repo.saveAll(updatedItems);
+//    }
 
-    Flux<Product> decreaseStock(@NotNull List<String> items) {
-        log.info("decrease stock {} ", items);
-        Flux<Product> availableItems = repo.findAllById(items).map(Product::availabilityDec)
-            .filter(Optional::isPresent)
-            .map(Optional::get);
-        log.info("decrease stock save availableItems={} ", availableItems);
-        return repo.saveAll(availableItems);
-    }
+//    Flux<Product> decreaseStock(@NotNull List<String> items) {
+//        log.info("decrease stock {} ", items);
+//        Flux<Product> availableItems = repo.findAllById(items).map(Product::availabilityDec)
+//            .filter(Optional::isPresent)
+//            .map(Optional::get);
+//        log.info("decrease stock save availableItems={} ", availableItems);
+//        return repo.saveAll(availableItems);
+//    }
 
     public Flux<Product> findAll() {
         return repo.findAll();
