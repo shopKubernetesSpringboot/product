@@ -1,7 +1,5 @@
 package com.dgf.shopproduct.rest.handler;
 
-import com.dgf.shopproduct.Constants;
-import com.dgf.shopproduct.model.Product;
 import com.dgf.shopproduct.service.ProductService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -17,26 +15,21 @@ import reactor.test.StepVerifier;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 
+/**
+ * https://github.com/spring-projects/spring-framework/blob/master/spring-webflux/src/test/java/org/springframework/web/reactive/function/server/DefaultServerRequestTests.java
+ */
 @AutoConfigureDataMongo
-//@DataMongoTest
 public class ProductHandlerTest extends BaseHandlerTest {
 
     @MockBean
     private ProductService service;
     @Autowired
     private ProductHandler handler;
-
-    private final List<Product> products = Constants.PRODUCTS.get();
-//    private final String productsBody = super.mapper.writeValueAsString(products);
-
-//    public ProductHandlerTest() throws JsonProcessingException {
-//    }
 
     @Test
     public void list() {
