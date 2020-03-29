@@ -12,7 +12,7 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 @Configuration
 public class SecurityConfig {
 
-    @Value("${com.dgf.shopProduct.cors.origins}")
+    @Value("${com.dgf.shopproduct.cors.origins}")
     private String corsOrigins;
 
     @Bean

@@ -15,12 +15,12 @@ public class Product {
     private String id;
 
     private String name;
-    private ProductType rentalType;
+    private ProductType type;
     private int availability;
 
-    public Product(String name, ProductType rentalType, int availability) {
+    public Product(String name, ProductType type, int availability) {
         this.name = name;
-        this.rentalType=rentalType;
+        this.type = type;
         this.availability=availability;
     }
 

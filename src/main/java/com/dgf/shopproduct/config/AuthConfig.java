@@ -12,11 +12,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class AuthConfig {
 
-    @Value("${com.dgf.shopProduct.users.user.name}")
+    @Value("${com.dgf.shopproduct.users.user.name}")
     private String userName;
-    @Value("${com.dgf.shopProduct.users.user.pass}")
+    @Value("${com.dgf.shopproduct.users.user.pass}")
     private String userPass;
-    @Value("${com.dgf.shopProduct.users.user.role}")
+    @Value("${com.dgf.shopproduct.users.user.role}")
     private String userRole;
 
     @Bean

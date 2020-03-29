@@ -3,8 +3,8 @@ package com.dgf.shopproduct.service;
 import com.dgf.shopproduct.Constants;
 import com.dgf.shopproduct.model.Product;
 import com.dgf.shopproduct.repo.ProductRepo;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
@@ -13,11 +13,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 @Slf4j
 public class ProductService {
 
-    @Autowired
-    private ProductRepo repo;
+    private final ProductRepo repo;
 
     public Flux<Product> findByNameIgnoreCaseContaining(String name) {
         log.info("finding names like: {}", name);

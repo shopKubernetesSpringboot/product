@@ -1,18 +1,16 @@
 package com.dgf.shopproduct.repo;
 
-import static junit.framework.TestCase.assertEquals;
 
 import com.dgf.shopproduct.Constants;
 import com.dgf.shopproduct.model.Product;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import reactor.test.StepVerifier;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@SpringBootTest  //embedded mongo tests can't be unit tests
 public class ProductRepoTest {
 
     @Autowired

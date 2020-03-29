@@ -21,7 +21,7 @@ apply plugin: 'jacoco'
 jar {
     manifest {
         attributes(
-                'Start-Class': 'com.dgf.shopProduct.App'
+                'Start-Class': 'com.dgf.shopproduct.App'
         )
     }
 }
@@ -54,9 +54,14 @@ dependencies {
 //    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
     testImplementation 'io.projectreactor:reactor-test'
     testCompile 'org.springframework.security:spring-security-test'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 test {
