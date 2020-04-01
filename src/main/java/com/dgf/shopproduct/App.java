@@ -7,8 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.session.config.annotation.web.server.EnableSpringWebSession;
+import org.springframework.web.reactive.config.EnableWebFlux;
 
 @SpringBootApplication
+@EnableSpringWebSession
+@EnableWebFlux
+@EnableWebFluxSecurity()
 @EnableReactiveMongoRepositories
 @Slf4j
 public class App implements ApplicationContextAware {

@@ -5,6 +5,7 @@ import com.dgf.shopproduct.model.Product;
 import com.dgf.shopproduct.repo.ProductRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
@@ -46,7 +47,7 @@ public class ProductService {
 //    }
 
     public Flux<Product> findAll() {
-        return repo.findAll();
+        return repo.findAll(Sort.by("name"));
     }
 
     public void initData() {
