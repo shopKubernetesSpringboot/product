@@ -1,5 +1,7 @@
 package com.dgf.shopproduct;
 
+import com.dgf.shopproduct.config.SecurityConfig;
+import com.dgf.shopproduct.config.SessionConfig;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeAll;
@@ -8,6 +10,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpHeaders;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
@@ -19,6 +22,7 @@ import static org.springframework.security.test.web.reactive.server.SecurityMock
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Import({SessionConfig.class, SecurityConfig.class})
 public class AcceptanceTest {
 
     @Autowired

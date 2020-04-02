@@ -1,11 +1,13 @@
 package com.dgf.shopproduct.rest.handler;
 
+import com.dgf.shopproduct.TestConfig;
 import com.dgf.shopproduct.service.ProductService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
 import org.springframework.mock.web.server.MockServerWebExchange;
@@ -24,6 +26,7 @@ import static org.mockito.ArgumentMatchers.any;
  * https://github.com/spring-projects/spring-framework/blob/master/spring-webflux/src/test/java/org/springframework/web/reactive/function/server/DefaultServerRequestTests.java
  */
 @AutoConfigureDataMongo
+@Import(TestConfig.class)
 public class ProductHandlerTest extends BaseHandlerTest {
 
     @MockBean
