@@ -17,10 +17,10 @@ import org.springframework.web.reactive.config.EnableWebFlux;
 @EnableWebFluxSecurity()
 @EnableReactiveMongoRepositories
 @Slf4j
-public class App implements ApplicationContextAware {
+public class ShopProductApp implements ApplicationContextAware {
 
     public static void main(String[] args) {
-        SpringApplication.run(App.class);
+        SpringApplication.run(ShopProductApp.class);
     }
 
     @Override

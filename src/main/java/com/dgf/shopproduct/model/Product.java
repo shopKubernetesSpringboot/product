@@ -16,6 +16,7 @@ public class Product {
     private String name;
     private ProductType type;
     private int availability;
+    private Boolean image=false;
 
 //    public Optional<Product> availabilityDec() {
 //        if (availability<=0) {
