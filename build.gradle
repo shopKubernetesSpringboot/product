@@ -21,7 +21,7 @@ apply plugin: 'jacoco'
 jar {
     manifest {
         attributes(
-                'Start-Class': 'com.dgf.shopproduct.App'
+                'Start-Class': 'com.dgf.shopproduct.ShopProductApp'
         )
     }
 }
@@ -32,6 +32,10 @@ configurations {
 }
 
 jar.dependsOn = [thinProperties] //thin-launcher
+
+bootRun {
+    args = ["--spring.profiles.active=${project.properties['profile'] ?: 'dev'}"]
+}
 
 plugins.withType(JacocoPlugin) {
     tasks["test"].finalizedBy 'jacocoTestReport'
@@ -50,7 +54,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security'
     implementation group: 'org.springframework.session', name: 'spring-session-core'
-    implementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
+    if (project.hasProperty('dev')) {
+        dependencies {
+            implementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
+        }
+    }
     compileOnly 'org.projectlombok:lombok'
 //    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'

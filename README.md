@@ -20,15 +20,32 @@ Also see the related projects:
 - Persistence with reactive MongoDb.
 
 Notes:
-- No security implementation at all.
 - Reactive junit tests.
 - Basic auth security implementation & csrf.
 - No persistence transaction implementation (https://spring.io/blog/2019/05/16/reactive-transactions-with-spring).
 - Sonar gradle plugin (you can run sonarqube gradle task if you have sonar installed on localhost:9000)
   
-### Try it
-- Run App as a spring-boot app:
+### Run
+#### Spring boot application
+- Run ShopProductApp as a spring-boot app:
     - command line: `gradlew :bootRun`
-    - intellij: right button on `App.java` & Run...
+    - intellij: right button on `ShopProductApp.java` & Run...
+#### With docker
 
-- Use `postman_collection.json` (importing the json file in Postman client)
+```shell script
+#optional
+docker system prune
+
+#build & run image
+#profile prod to exclude embedded mongo, also don't execute tests
+./gradlew build -Pprofile=prod -x test
+docker build -t techtests/shopproduct .
+#run mongo & check connection
+docker run -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name shop-mongo --network-alias shop-mongo mongo
+mongo --host mongodb://localhost:27017
+#get docker mongo ip
+MONGO_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' shop-mongo)
+# or docker inspect <containerId> | grep "IPAddress"
+#run microservice
+docker run -p 8081:8081 -e "SPRING_PROFILES_ACTIVE=prod" -e "MONGO_IP=$MONGO_IP" -t techtests/shopproduct
+```
