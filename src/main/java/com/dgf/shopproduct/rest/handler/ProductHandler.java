@@ -19,15 +19,20 @@ public class ProductHandler {
     private final ProductService service;
 
     public Mono<ServerResponse> find(ServerRequest request) {
-        return service.findByNameIgnoreCaseContaining(request.pathVariable("name")).collectList().flatMap(resp->
-            ok().contentType(APPLICATION_JSON).body(fromValue(resp))
+        return service.findByNameIgnoreCaseContaining(request.pathVariable("name")).collectList().flatMap(resp ->
+                ok().contentType(APPLICATION_JSON).body(fromValue(resp))
         );
     }
 
     public Mono<ServerResponse> list(ServerRequest request) {
-        return service.findAll().collectList().flatMap(resp->
-            ok().contentType(APPLICATION_JSON).body(fromValue(resp))
+        return service.findAll().collectList().flatMap(resp ->
+                ok().contentType(APPLICATION_JSON).body(fromValue(resp))
         );
     }
 
+    public Mono<ServerResponse> putAll(ServerRequest request) {
+        return service.insertAll().collectList().flatMap(resp ->
+                ok().contentType(APPLICATION_JSON).body(fromValue(resp))
+        );
+    }
 }

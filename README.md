@@ -49,3 +49,10 @@ MONGO_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{
 #run microservice
 docker run -p 8081:8081 -e "SPRING_PROFILES_ACTIVE=prod" -e "MONGO_IP=$MONGO_IP" -t techtests/shopproduct
 ```
+
+#### With kubernetes/minikube
+
+## Kubernetes
+Compile, publish to docker and deploy to kubernetes
+
+    ./publishToDocker.sh && bash -c '../kubernetes/publish.sh $0' product && bash -c '../kubernetes/publish.sh $0' mongo 
