@@ -63,9 +63,11 @@ public class ProductService {
                 do {
                     repeat=false;
                     try {
-                        repo.findAll().collectList()
+                        //data is pre-filled with mongo-insert.json
+                        if (repo.findAll().collectList()
                                 .blockOptional()
-                                .orElseThrow(() -> new RuntimeException("MongoDb not ready (findAll)"));
+                                .orElseThrow(() -> new RuntimeException("MongoDb not ready (findAll)"))
+                                .size()!=0 && repeatCount==0)
                         initDataInThread(repeatCount);
                     } catch (RuntimeException e) {
                         repeat = true;
@@ -87,28 +89,8 @@ public class ProductService {
 
     private void initDataInThread(int repeatCount) {
         log.info("Creating products");
-        Disposable subscribe = repo.saveAll(Constants.PRODUCTS.get()).subscribe();
-//        List<Product> productsSaved = repo.saveAll(Constants.PRODUCTS.get())
-//                .collectList()
-//                .onErrorStop()
-//                .block();
-//                .blockOptional()
-//                .orElseThrow(() -> new RuntimeException("MongoDb not ready #"+repeatCount+" (saveAll)"));
-//                .checkpoint()
-//                .subscribe();
-//        checkMongoStatus();
-//        Flux<Product> productsRead = repo.findAll();
-//        Mono.when(productsSaved.collectList(), productsRead.collectList())
-//        productsSaved.onErrorStop().subscribe();
-//        productsSaved
-//                .onErrorStop()
-//                .collectList().block(Duration.ofMillis(5000));
-//        if (productsSaved==null || productsSaved.size()!=Constants.PRODUCTS.get().size())
-//            throw new RuntimeException("MongoDb not ready #"+repeatCount+" (productsSaved size mismatch)");
+        repo.saveAll(Constants.PRODUCTS.get()).subscribe();
         checkMongoStatus();
-//        Mono.when(productsSaved.collectList())
-////                .retry(retry -> retry.)
-//                .block();
         log.info("Creating products... OK!!");
     }
 
@@ -116,10 +98,10 @@ public class ProductService {
         log.info("Checking mongo status...");
         List<Product> products = repo.findAll()
                 .collectList()
-//                .onErrorStop()
                 .blockOptional()
                 .orElseThrow(() -> new RuntimeException("MongoDb not ready (findAll)"));
-//        .subscribe();
+        if (products.size()>Constants.PRODUCTS.get().size())
+            repo.deleteAll().subscribe(); //todo as ids change if product-pod is redeployed must deleteAll to create non duplicate products (see Constants.PRODUCTS)
         if (products.size()!=Constants.PRODUCTS.get().size())
             throw new RuntimeException("MongoDb not ready (findAll size mismatch)");
         log.info("Checking mongo status... OK!!");

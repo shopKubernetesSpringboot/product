@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Constants {
 
+    //todo in kubernetes if only product-pod is redeployed ids change so if we have some products in cart ids will not match
     public static final AtomicReference<List<Product>> PRODUCTS = new AtomicReference<>(Arrays.asList(
         new Product("c5ee4e15-7fe0-471f-bf0b-428fd99229e8", "Battlefield V", NEW, 5, true), //fixed id to get image
         new Product(getId(), getName(), REGULAR, 2, false),

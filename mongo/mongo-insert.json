@@ -1,0 +1,11 @@
+{"_id":"c28c1b39-c9f8-4643-aeea-fe7bd217dac3","name":"Product 3","type":"OLD","availability":1,"image":false,"_class":"com.dgf.shopproduct.model.Product"}
+{"_id":"0bdf6347-2a4c-4e03-a02b-2f3091395615","name":"Product 2","type":"OLD","availability":1,"image":false,"_class":"com.dgf.shopproduct.model.Product"}
+{"_id":"c5ee4e15-7fe0-471f-bf0b-428fd99229e8","name":"Battlefield V","type":"NEW","availability":5,"image":true,"_class":"com.dgf.shopproduct.model.Product"}
+{"_id":"393eaf28-e816-47b2-9f32-b0a2d84aea13","name":"Product 1","type":"REGULAR","availability":2,"image":false,"_class":"com.dgf.shopproduct.model.Product"}
+{"_id":"64c1b772-10d7-45ee-b46a-8e99e308d13e","name":"Product 0","type":"REGULAR","availability":2,"image":false,"_class":"com.dgf.shopproduct.model.Product"}
+{"_id":"4aa73c77-c4d6-48b9-bbbc-8f49cca4c30f","name":"Product 4","type":"OLD","availability":1,"image":false,"_class":"com.dgf.shopproduct.model.Product"}
+{"_id":"bf0ea00f-4076-40d6-8f5f-40f22e1a760d","name":"Product 5","type":"OLD","availability":1,"image":false,"_class":"com.dgf.shopproduct.model.Product"}
+{"_id":"eb9e1de3-a388-4eb8-b837-e19bfa447c67","name":"Product 6","type":"OLD","availability":1,"image":false,"_class":"com.dgf.shopproduct.model.Product"}
+{"_id":"e49722b4-4a4c-4934-962d-d590dbe45d83","name":"Product 7","type":"OLD","availability":1,"image":false,"_class":"com.dgf.shopproduct.model.Product"}
+{"_id":"e9c4d93f-0506-4b2d-b985-1f4e9af9f3ad","name":"Product 8  añldskj fañlkdsj ñalkdsj fñlkasdj fñlkasjd fñlkasdj fñlkasjd fñlaksd jfñlaksdj fñlaksdj fñlaksd jfñlaksdj fñlaksdj fñlaksdj fñlaksdjf ñlkasdj fñlaksdj fñlaksdj fñlaksdj fñlkasdjf ñlaksdjf ñlaksdjf ñlaksdj fñlkasdj fñlkasdj fñlaksdj fñlkasdj fñlkasjdf ñlaksdj fñlaksdj fñlaksdj fñlaksd jfñlkasdj fñlaksjd fñlkasjd fñlkajsd f","type":"OLD","availability":1,"image":false,"_class":"com.dgf.shopproduct.model.Product"}
+{"_id":"1063d4e2-e583-4d80-8dd8-ebeb2b44e892","name":"Product 9 large text just to try what happens in the rows for example you know... large text just to try what happens in the rows for example you know","type":"OLD","availability":1,"image":false,"_class":"com.dgf.shopproduct.model.Product"}

@@ -55,4 +55,11 @@ docker run -p 8081:8081 -e "SPRING_PROFILES_ACTIVE=prod" -e "MONGO_IP=$MONGO_IP"
 ## Kubernetes
 Compile, publish to docker and deploy to kubernetes
 
-    ./publishToDocker.sh && bash -c '../kubernetes/publish.sh $0' product && bash -c '../kubernetes/publish.sh $0' mongo 
+Product SpringBootApp
+
+    ./publishToDocker.sh && bash -c '../kubernetes/publish.sh $0' product
+    
+Mongo container (preconfigured & with data preloaded)
+
+    cd mongo
+    ./publishToDocker.sh && bash -c '../../kubernetes/publish.sh $0' mongo 
