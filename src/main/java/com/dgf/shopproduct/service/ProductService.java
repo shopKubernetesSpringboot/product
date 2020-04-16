@@ -67,8 +67,8 @@ public class ProductService {
                         if (repo.findAll().collectList()
                                 .blockOptional()
                                 .orElseThrow(() -> new RuntimeException("MongoDb not ready (findAll)"))
-                                .size()!=0 && repeatCount==0)
-                        initDataInThread(repeatCount);
+                                .size()==0)
+                            initDataInThread(repeatCount);
                     } catch (RuntimeException e) {
                         repeat = true;
                         log.error("MongoDb not ready repeatCount #"+repeatCount, e);
